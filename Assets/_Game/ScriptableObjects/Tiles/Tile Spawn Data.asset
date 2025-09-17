@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d2a4df7a73e014e835bf6c40127131, type: 3}
+  m_Name: Tile Spawn Data
+  m_EditorClassIdentifier: YNQ::YNQ.JumpyJoe.TileSpawnData
+  _tilePrefab: {fileID: 3272707123417019809, guid: ec5c5baa02d393448bbc813660df5241, type: 3}
+  _propsPrefabs:
+  - {fileID: 2222111361404534124, guid: 88f2fd29f58b9734683512546acec310, type: 3}
+  - {fileID: 4661435515762455780, guid: e289bf5debb17f6459818c207d781953, type: 3}
+  - {fileID: 6941765000743290380, guid: c60edd51c065ceb46b345849a03bc106, type: 3}
+  - {fileID: 2807449429036958551, guid: f0c16f0ea935ea64297ca1d4d55d9746, type: 3}
+  - {fileID: 9069115365609291303, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
+  - {fileID: 1576488453971893466, guid: a778b631c6253a04899cb31bad047c81, type: 3}
+  - {fileID: 8178839540954546638, guid: fa9ea437b93713d4997ebb7102392fd3, type: 3}
+  - {fileID: 8178839540954546638, guid: e447dd9f1415f7743a17e85f7d0266ba, type: 3}
+  - {fileID: 8178839540954546638, guid: 17f0ecb8a1ded8f428f25fb22be9a636, type: 3}
+  - {fileID: 8178839540954546638, guid: 3f326772d65208f4daf2f7ef69ddc579, type: 3}
+  - {fileID: 8178839540954546638, guid: f198b4072019cd54f88e0dcdc028a10f, type: 3}
+  - {fileID: 4263922822445002727, guid: 3cdafb3c2f54d434894928d72d282874, type: 3}
+  - {fileID: 6239969156481229051, guid: b71b0f8d2f881c743a85228f3030d1cb, type: 3}
+  - {fileID: 1493958779012120596, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}
+  - {fileID: 8178839540954546638, guid: 7358c0c814d194d4490d31056acae678, type: 3}
+  - {fileID: 8178839540954546638, guid: c893e29ea78f2354e920dd793a017a6c, type: 3}
+  - {fileID: 38335279662140195, guid: 34d3f526198dae440bb2ce6005d86055, type: 3}
+  _obstaclesPrefabs:
+  - {fileID: 2095841799904875110, guid: 816b7d59bce79e742b959d93c3f73894, type: 3}
+  - {fileID: 2095841799904875110, guid: 7660cae27c6ed4446aa4b7a8c00aa38a, type: 3}
+  - {fileID: 2095841799904875110, guid: 083fda62b5d55db4fb08cae24d781c2d, type: 3}
+  - {fileID: 2095841799904875110, guid: fdeece293528c734e8f9c674923ba3a3, type: 3}
+  - {fileID: 2095841799904875110, guid: 0f76dbf4cb6cc9145b4fa912625f9906, type: 3}
+  - {fileID: 2095841799904875110, guid: d10ba65253d3c3e4b9262bade7344925, type: 3}
+  _minProps: 2
+  _maxProps: 8
+  _randomObjectShowRate: 0.294
+  _obstacleShowRate: 0.4
