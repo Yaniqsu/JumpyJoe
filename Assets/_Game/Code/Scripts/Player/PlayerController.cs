@@ -11,12 +11,14 @@ namespace YNQ.JumpyJoe
         private TileManager _tileManager;
         public PlayerMovement Movement { get; private set; }
         public PlayerInput PlayerInput { get; private set; }
+        public PlayerCameraManager CameraManager { get; private set; }
 
         public void Initialize(TileManager tileManager)
         {
             _tileManager = tileManager;
             Movement = new PlayerMovement(this, _playerMovementValues);
             PlayerInput = new PlayerInput(_inputReference);
+            CameraManager = GetComponentInChildren<PlayerCameraManager>();
 
             PlayerInput.OnJump += Jump;
             PlayerInput.OnAlterJumpHeight += Movement.AlterHeight;

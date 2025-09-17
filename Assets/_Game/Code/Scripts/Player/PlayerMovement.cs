@@ -8,7 +8,7 @@ namespace YNQ.JumpyJoe
     {
         private PlayerController _playerController;
         private PlayerMovementValues _values;
-        private float _currentHeight = 0;
+        private float _currentHeight = 1;
         private bool _isJumping = false;
 
         public event Action OnJumpEnd = null;

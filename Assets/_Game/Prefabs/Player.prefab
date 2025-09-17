@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3319509581303403946}
+  m_Father: {fileID: 1246378111376275672}
   m_LocalEulerAnglesHint: {x: 16.295, y: -90, z: 11.5}
 --- !u!114 &8116485067107119380
 MonoBehaviour:
@@ -144,7 +144,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3319509581303403946}
+  m_Father: {fileID: 1246378111376275672}
   m_LocalEulerAnglesHint: {x: -17.586, y: -46.831, z: -1}
 --- !u!114 &4861242394160375920
 MonoBehaviour:
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
-    Enabled: 0
+    Enabled: 1
     m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 2
@@ -254,10 +254,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1246378111376275672}
   - {fileID: 4302442282568953306}
-  - {fileID: 6449500111038805794}
-  - {fileID: 2526253179763291298}
-  - {fileID: 3125565745597852605}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4519022657122444007
@@ -306,7 +304,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3319509581303403946}
+  m_Father: {fileID: 1246378111376275672}
   m_LocalEulerAnglesHint: {x: -10.845, y: -11.752, z: 0}
 --- !u!114 &1074363825609022233
 MonoBehaviour:
@@ -386,6 +384,60 @@ MonoBehaviour:
   CustomTarget: {fileID: 0}
   FocusDepthOffset: 0
   Damping: 0.2
+--- !u!1 &5820446461944592063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1246378111376275672}
+  - component: {fileID: 849996488579548037}
+  m_Layer: 0
+  m_Name: CameraManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1246378111376275672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820446461944592063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2526253179763291298}
+  - {fileID: 6449500111038805794}
+  - {fileID: 3125565745597852605}
+  m_Father: {fileID: 3319509581303403946}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &849996488579548037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820446461944592063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a47d3cc50486a6498ed8c6a6577ba03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: YNQ::YNQ.JumpyJoe.PlayerCameraManager
+  _cameras:
+  - key: 0
+    value: {fileID: 1074363825609022233}
+  - key: 1
+    value: {fileID: 4861242394160375920}
+  - key: 2
+    value: {fileID: 8116485067107119380}
 --- !u!1001 &6033584272561673922
 PrefabInstance:
   m_ObjectHideFlags: 0

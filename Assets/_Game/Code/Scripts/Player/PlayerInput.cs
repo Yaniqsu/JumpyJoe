@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 namespace YNQ.JumpyJoe
 {
-    
     public class PlayerInput
     {
         public Action OnJump;
@@ -13,11 +12,9 @@ namespace YNQ.JumpyJoe
         public PlayerInput(InputReference inputReference)
         {
             _reference = inputReference;
-
-            EnableInput();
         }
 
-        private void EnableInput()
+        public void EnableInput()
         {
             _reference.jumpAction.action.started += Jump;
             _reference.alterHeightAction.action.started += AlterHeight;
