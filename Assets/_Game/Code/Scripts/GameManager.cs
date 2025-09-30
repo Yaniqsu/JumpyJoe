@@ -14,6 +14,10 @@ namespace YNQ.JumpyJoe
             _tileManager.GenerateStartTiles();
             _playerController = Instantiate(_playerControllerPrefab, _tileManager.CurrentPos, Quaternion.identity);
             _playerController.Initialize(_tileManager);
+            _playerController.OnDeath += obstacle =>
+            {
+                Destroy(obstacle);
+            };
         }
 
         public void StartGame()
