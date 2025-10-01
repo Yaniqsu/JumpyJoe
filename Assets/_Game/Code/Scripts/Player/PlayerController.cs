@@ -17,6 +17,7 @@ namespace YNQ.JumpyJoe
         public PlayerCameraManager CameraManager { get; private set; }
 
         public event Action<GameObject> OnDeath = null;
+        public event Action<float> OnJump = null;
 
         public void Initialize(TileManager tileManager)
         {
@@ -32,6 +33,7 @@ namespace YNQ.JumpyJoe
         private void Jump()
         {
             Movement.Jump(_tileManager.CurrentPos, _tileManager.NextPos);
+            OnJump?.Invoke(Movement.CurrentHeight);
         }
 
         private void OnDisable()
@@ -49,8 +51,6 @@ namespace YNQ.JumpyJoe
             var rb = collision.attachedRigidbody;
             if (rb == null)
                 return;
-            
-            Debug.Log(rb.tag);
             
             if (rb.CompareTag(_obstacleTag))
                 Kill(rb.gameObject);

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab56c3dffe7b460281dcc5ebe82fb609, type: 3}
+  m_Name: MenuStrings
+  m_EditorClassIdentifier: YNQ::YNQ.JumpyJoe.MenuStrings
+  distanceText: {fileID: 11400000, guid: 4ccb877cd9014254ab5a388a488246af, type: 2}
+  heightText: {fileID: 11400000, guid: 97704260b9b76fc4fb937984627aa4f9, type: 2}
+  bestSession: {fileID: 11400000, guid: a54b60fa356dfca47b15c8ef0c8edc6c, type: 2}
+  bestGlobal: {fileID: 11400000, guid: 615f51ea0533a6e47b18e7cf42db7252, type: 2}

@@ -8,11 +8,12 @@ namespace YNQ.JumpyJoe
     {
         private PlayerController _playerController;
         private PlayerMovementValues _values;
-        private float _currentHeight = 1;
         private bool _isJumping = false;
+        public float CurrentHeight { get; private set; } = 1;
 
         public event Action OnJumpEnd = null;
         
+
         public PlayerMovement(PlayerController playerController, PlayerMovementValues values)
         {
             _playerController = playerController;
@@ -27,13 +28,13 @@ namespace YNQ.JumpyJoe
 
         public void AlterHeight(float modifier)
         {
-            _currentHeight = Mathf.Clamp(_currentHeight + modifier, _values.minHeight, _values.maxHeight);
-            Debug.Log($"Current height: {_currentHeight}");
+            CurrentHeight = Mathf.Clamp(CurrentHeight + modifier, _values.minHeight, _values.maxHeight);
+            Debug.Log($"Current height: {CurrentHeight}");
         }
 
         private IEnumerator HandleJump(Vector3 startPos, Vector3 endPos)
         {
-            var time = _values.minSpeed + _currentHeight * _values.heightIncreaseSpeedRatio;
+            var time = _values.minSpeed + CurrentHeight * _values.heightIncreaseSpeedRatio;
             var elapsedTime = 0f;
             _isJumping = true;
 
@@ -53,7 +54,7 @@ namespace YNQ.JumpyJoe
         private Vector3 GetQuadraticBezierPoint(Vector3 A, Vector3 B, float t)
         {
             Vector3 M = (A + B) / 2f;
-            Vector3 C = new Vector3(M.x, M.y + _currentHeight, M.z);
+            Vector3 C = new Vector3(M.x, M.y + CurrentHeight, M.z);
             Vector3 P = (1 - t) * (1 - t) * A + 2 * (1 - t) * t * C + t * t * B;
 
             return P;
