@@ -81,6 +81,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!1 &630771122874404792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7253629530590346952}
+  - component: {fileID: 6973444517252057208}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7253629530590346952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630771122874404792}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 359028390758978816}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6973444517252057208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630771122874404792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0
+  sharedProfile: {fileID: 11400000, guid: 8165c8f1cd14e954bba432a311691d8a, type: 2}
 --- !u!1 &3202708356309844332
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +142,7 @@ GameObject:
   - component: {fileID: 6740087600867835466}
   - component: {fileID: 3025142723528958101}
   - component: {fileID: 445280763765902486}
+  - component: {fileID: 8787584796966425165}
   m_Layer: 0
   m_Name: Height Sum
   m_TagString: Untagged
@@ -232,6 +282,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!225 &8787584796966425165
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202708356309844332}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &3941247458279317329
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +578,7 @@ GameObject:
   - component: {fileID: 4800490920646511953}
   - component: {fileID: 9135370718172949380}
   - component: {fileID: 3035555001994450250}
+  - component: {fileID: 5938475970367604516}
   m_Layer: 0
   m_Name: Distance
   m_TagString: Untagged
@@ -655,6 +718,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!225 &5938475970367604516
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5985066681103336311}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &6398603914386767012
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +742,7 @@ GameObject:
   - component: {fileID: 943321513913521073}
   - component: {fileID: 4473339515198342337}
   - component: {fileID: 4006468078813525633}
+  - component: {fileID: 3084583620142569371}
   m_Layer: 0
   m_Name: Best Score Global
   m_TagString: Untagged
@@ -806,6 +882,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!225 &3084583620142569371
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6398603914386767012}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &6968795653318631163
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +906,7 @@ GameObject:
   - component: {fileID: 1468598033322817104}
   - component: {fileID: 2013890894652283636}
   - component: {fileID: 8560284307253996159}
+  - component: {fileID: 8042183182666442062}
   m_Layer: 0
   m_Name: Best Score Session
   m_TagString: Untagged
@@ -957,6 +1046,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!225 &8042183182666442062
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6968795653318631163}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7465351435901643908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 359028390758978816}
   - component: {fileID: 3324588404792441358}
+  - component: {fileID: 1587860149123114492}
   m_Layer: 0
   m_Name: GameOverManager
   m_TagString: Untagged
@@ -1121,6 +1223,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5741453258410506208}
+  - {fileID: 7253629530590346952}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3324588404792441358
@@ -1138,10 +1241,33 @@ MonoBehaviour:
   _menuStrings: {fileID: 11400000, guid: 0ecf475f80573fa46bc07ace25785242, type: 2}
   _gameOverCanvas: {fileID: 2666012718146353902}
   _verticalLayoutGroup: {fileID: 919964699732798210}
+  _volume: {fileID: 6973444517252057208}
   _distanceScore: {fileID: 9135370718172949380}
   _bestScoreSession: {fileID: 2013890894652283636}
   _bestScoreGlobal: {fileID: 4473339515198342337}
   _heightScore: {fileID: 3025142723528958101}
+--- !u!95 &1587860149123114492
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8174606221964777496}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d16edccb5765fd742a6e868388a24504, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8401791913145328316
 GameObject:
   m_ObjectHideFlags: 0

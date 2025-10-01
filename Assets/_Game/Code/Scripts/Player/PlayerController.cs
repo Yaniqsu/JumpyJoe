@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace YNQ.JumpyJoe
 {
-    class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         [SerializeField] private InputReference _inputReference;
         [SerializeField] private PlayerMovementValues _playerMovementValues;
@@ -25,6 +25,10 @@ namespace YNQ.JumpyJoe
             Movement = new PlayerMovement(this, _playerMovementValues);
             PlayerInput = new PlayerInput(_inputReference);
             CameraManager = GetComponentInChildren<PlayerCameraManager>();
+            foreach (var component in GetComponentsInChildren<IPlayerComponent>())
+            {
+                component.Initialize(this);
+            }
 
             PlayerInput.OnJump += Jump;
             PlayerInput.OnAlterJumpHeight += Movement.AlterHeight;

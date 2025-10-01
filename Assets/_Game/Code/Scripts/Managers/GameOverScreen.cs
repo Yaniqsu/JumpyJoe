@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ namespace YNQ.JumpyJoe
         [SerializeField] private MenuStrings _menuStrings;
         [SerializeField] private CanvasGroup _gameOverCanvas;
         [SerializeField] private VerticalLayoutGroup _verticalLayoutGroup;
+        [SerializeField] private Volume _volume;
         [SerializeField] private TextMeshProUGUI _distanceScore;
         [SerializeField] private TextMeshProUGUI _bestScoreSession;
         [SerializeField] private TextMeshProUGUI _bestScoreGlobal;
@@ -35,7 +37,15 @@ namespace YNQ.JumpyJoe
 
         private IEnumerator WaitUntilShowingGameOverScreen()
         {
-            yield return new WaitForSeconds(1f);
+            var elapsedTime = 0f;
+
+            while (elapsedTime < 1)
+            {
+                _volume.weight = elapsedTime;
+                
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
             
             _gameOverCanvas.gameObject.SetActive(true);
         }

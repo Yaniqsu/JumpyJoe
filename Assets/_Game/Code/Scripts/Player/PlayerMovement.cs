@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace YNQ.JumpyJoe
 {
-    class PlayerMovement
+    public class PlayerMovement
     {
         private PlayerController _playerController;
         private PlayerMovementValues _values;
