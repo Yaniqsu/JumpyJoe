@@ -11,6 +11,7 @@ namespace YNQ.JumpyJoe
         private bool _isJumping = false;
         public float CurrentHeight { get; private set; } = 1;
 
+        public event Action OnJumpStart;
         public event Action OnJumpEnd = null;
         
 
@@ -23,7 +24,10 @@ namespace YNQ.JumpyJoe
         public void Jump(Vector3 startPos, Vector3 endPos)
         {
             if(!_isJumping)
+            {
                 _playerController.StartCoroutine(HandleJump(startPos, endPos));
+                OnJumpStart?.Invoke();
+            }
         }
 
         public void AlterHeight(float modifier)

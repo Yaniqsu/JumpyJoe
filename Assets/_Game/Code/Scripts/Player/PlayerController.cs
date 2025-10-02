@@ -10,6 +10,8 @@ namespace YNQ.JumpyJoe
         [SerializeField] private PlayerMovementValues _playerMovementValues;
         [SerializeField] private ParticleSystem _destroyParticle;
         [SerializeField, Tag] private string _obstacleTag;
+
+        private bool _dead;
         
         private TileManager _tileManager;
         public PlayerMovement Movement { get; private set; }
@@ -32,12 +34,12 @@ namespace YNQ.JumpyJoe
 
             PlayerInput.OnJump += Jump;
             PlayerInput.OnAlterJumpHeight += Movement.AlterHeight;
+            Movement.OnJumpStart += () => OnJump?.Invoke(Movement.CurrentHeight);
         }
 
         private void Jump()
         {
             Movement.Jump(_tileManager.CurrentPos, _tileManager.NextPos);
-            OnJump?.Invoke(Movement.CurrentHeight);
         }
 
         private void OnDisable()
@@ -62,9 +64,28 @@ namespace YNQ.JumpyJoe
 
         private void Kill(GameObject obstacle)
         {
+            if (_dead)
+                return;
+            
             _destroyParticle.Play();
-            CameraManager.SwitchCamera(CameraType.GameOver);
+            Die();
             OnDeath?.Invoke(obstacle);
+        }
+
+        public void Kill()
+        {
+            if (_dead)
+                return;
+            
+            Die();
+            OnDeath?.Invoke(null);
+        }
+
+        private void Die()
+        {
+            _dead = true;
+            PlayerInput.DisableInput();
+            CameraManager.SwitchCamera(CameraType.GameOver);
         }
     }
 }

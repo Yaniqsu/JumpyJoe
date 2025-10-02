@@ -10,6 +10,7 @@ namespace YNQ.JumpyJoe
 
         private TileSpawnData _tileSpawnData;
         private TileManager _tileManager;
+        private float _obstacleSpawnRateEasing;
 
         public TileSpawner(TileManager tileManager, TileSpawnData tileSpawnData)
         {
@@ -57,11 +58,15 @@ namespace YNQ.JumpyJoe
 
         private void SpawnObstacle(Tile tile)
         {
-            var random = Random.Range(0f, 1f);
+            var random = Random.Range(0f, 1f) - _obstacleSpawnRateEasing;
 
             if (random > _tileSpawnData.ObstacleShowRate)
+            {
+                _obstacleSpawnRateEasing += 0.1f;
                 return;
+            }
 
+            _obstacleSpawnRateEasing = 0;
             Object.Instantiate(_tileSpawnData.RandomObstacle, tile.ObstaclePos, Quaternion.identity, tile.transform);
         }
     }
