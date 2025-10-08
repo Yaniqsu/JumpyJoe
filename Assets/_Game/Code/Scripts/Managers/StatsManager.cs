@@ -10,7 +10,7 @@ namespace YNQ.JumpyJoe
 
         private int _jumps;
         private float _rawHeight;
-        private float _best;
+        private static float _best = 0;
         public float CurrentDistance => _jumps * _distancePerJump;
         public float HeightSum => _rawHeight * _heightMultiplier;
 

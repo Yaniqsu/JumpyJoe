@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace YNQ.JumpyJoe
@@ -6,36 +7,34 @@ namespace YNQ.JumpyJoe
     public class PlayerInput
     {
         public Action OnJump;
-        public Action<float> OnAlterJumpHeight;
-        private InputReference _reference;
+        public Action<float> OnSetJumpHeight;
+        private readonly InputReference _reference;
+        private readonly MicrophoneInputController _micController;
+        private readonly float _maxDbNormalised;
         
-        public PlayerInput(InputReference inputReference)
+        public PlayerInput(MicrophoneInputController microphoneInputController, InputReference inputReference)
         {
             _reference = inputReference;
+            _micController = microphoneInputController;
+            _maxDbNormalised = _reference.maxDbTreshold - _reference.minDbTreshold;
         }
 
-        public void EnableInput()
+        public void Update()
         {
-            _reference.jumpAction.action.started += Jump;
-            _reference.alterHeightAction.action.started += AlterHeight;
-
-            _reference.action.Enable();
+            CheckMicrophoneInput();
         }
 
-        public void DisableInput()
+        private void CheckMicrophoneInput()
         {
-            _reference.jumpAction.action.started -= Jump;
-            _reference.alterHeightAction.action.started -= AlterHeight;
-        }
-
-        public void Jump(InputAction.CallbackContext context)
-        {
-            OnJump?.Invoke();
-        }
-
-        public void AlterHeight(InputAction.CallbackContext context)
-        {
-            OnAlterJumpHeight?.Invoke(context.action.ReadValue<float>());
+            if (_micController.DbValue >= _reference.minDbTreshold &&
+                _micController.DbValue <= _reference.maxDbTreshold)
+            {
+                var dbNormalised = _micController.DbValue - _reference.minDbTreshold;
+                var ratio = dbNormalised / _maxDbNormalised;
+                
+                Debug.Log($"Ratio: {ratio}");
+                OnSetJumpHeight?.Invoke(ratio);
+            }
         }
     }
 }

@@ -242,6 +242,7 @@ Transform:
   - {fileID: 1246378111376275672}
   - {fileID: 4302442282568953306}
   - {fileID: 5998585143208745550}
+  - {fileID: 3992383680889638599}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4519022657122444007
@@ -259,6 +260,7 @@ MonoBehaviour:
   _inputReference: {fileID: 11400000, guid: b593c27dd155de04a95c68e11024f98b, type: 2}
   _playerMovementValues: {fileID: 11400000, guid: 2b318ba1c498bc543a7f458ef1f93174, type: 2}
   _destroyParticle: {fileID: 3674181675025422871}
+  _microphoneInputController: {fileID: 9085913119507539422}
   _obstacleTag: Obstacle
 --- !u!54 &911678961719119506
 Rigidbody:
@@ -474,6 +476,51 @@ MonoBehaviour:
     value: {fileID: 4861242394160375920}
   - key: 2
     value: {fileID: 8116485067107119380}
+--- !u!1 &6026364433537227887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3992383680889638599}
+  - component: {fileID: 9085913119507539422}
+  m_Layer: 0
+  m_Name: MicrophoneInputController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3992383680889638599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026364433537227887}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3319509581303403946}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9085913119507539422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026364433537227887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc39b024de4a80d409965c45bf62a6f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: YNQ::YNQ.JumpyJoe.MicrophoneInputController
+  _samplesCount: 4410
 --- !u!1001 &6033584272561673922
 PrefabInstance:
   m_ObjectHideFlags: 0

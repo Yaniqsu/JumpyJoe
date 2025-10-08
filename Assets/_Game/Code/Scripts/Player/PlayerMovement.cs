@@ -30,9 +30,12 @@ namespace YNQ.JumpyJoe
             }
         }
 
-        public void AlterHeight(float modifier)
+        public void SetHeight(float heightRatio)
         {
-            CurrentHeight = Mathf.Clamp(CurrentHeight + modifier, _values.minHeight, _values.maxHeight);
+            if(_isJumping)
+               return;
+            
+            CurrentHeight = Mathf.Lerp(_values.minHeight, _values.maxHeight, heightRatio);
             Debug.Log($"Current height: {CurrentHeight}");
         }
 

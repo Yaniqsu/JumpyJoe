@@ -51,9 +51,9 @@ namespace YNQ.JumpyJoe
 
         public void StartGame()
         {
-            _playerController.PlayerInput.EnableInput();
             _playerController.CameraManager.SwitchCamera(CameraType.Game);
             _playerController.Movement.OnJumpEnd += _tileManager.AddTile;
+            _playerController.MicrophoneInputController.StartRecording();
             
             _timeManager.Initialize(_playerController);
             _timeManager.OnTimeEnd += _playerController.Kill;

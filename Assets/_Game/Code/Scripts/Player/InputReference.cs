@@ -9,5 +9,8 @@ namespace YNQ.JumpyJoe
         public InputActionAsset action;
         public InputActionReference jumpAction;
         public InputActionReference alterHeightAction;
+
+        public float minDbTreshold;
+        public float maxDbTreshold;
     }
 }

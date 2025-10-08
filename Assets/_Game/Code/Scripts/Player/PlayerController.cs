@@ -9,6 +9,7 @@ namespace YNQ.JumpyJoe
         [SerializeField] private InputReference _inputReference;
         [SerializeField] private PlayerMovementValues _playerMovementValues;
         [SerializeField] private ParticleSystem _destroyParticle;
+        [SerializeField] private MicrophoneInputController _microphoneInputController;
         [SerializeField, Tag] private string _obstacleTag;
 
         private bool _dead;
@@ -17,6 +18,7 @@ namespace YNQ.JumpyJoe
         public PlayerMovement Movement { get; private set; }
         public PlayerInput PlayerInput { get; private set; }
         public PlayerCameraManager CameraManager { get; private set; }
+        public MicrophoneInputController MicrophoneInputController => _microphoneInputController;
 
         public event Action<GameObject> OnDeath = null;
         public event Action<float> OnJump = null;
@@ -25,15 +27,18 @@ namespace YNQ.JumpyJoe
         {
             _tileManager = tileManager;
             Movement = new PlayerMovement(this, _playerMovementValues);
-            PlayerInput = new PlayerInput(_inputReference);
+            PlayerInput = new PlayerInput(_microphoneInputController, _inputReference);
             CameraManager = GetComponentInChildren<PlayerCameraManager>();
             foreach (var component in GetComponentsInChildren<IPlayerComponent>())
             {
                 component.Initialize(this);
             }
 
-            PlayerInput.OnJump += Jump;
-            PlayerInput.OnAlterJumpHeight += Movement.AlterHeight;
+            PlayerInput.OnSetJumpHeight += ratio =>
+            {
+                Movement.SetHeight(ratio);
+                Jump();
+            };
             Movement.OnJumpStart += () => OnJump?.Invoke(Movement.CurrentHeight);
         }
 
@@ -42,14 +47,12 @@ namespace YNQ.JumpyJoe
             Movement.Jump(_tileManager.CurrentPos, _tileManager.NextPos);
         }
 
-        private void OnDisable()
+        private void Update()
         {
-            PlayerInput.DisableInput();
-        }
-
-        private void OnDestroy()
-        {
-            PlayerInput.DisableInput();
+            if (_dead)
+                return;
+            
+            PlayerInput.Update();
         }
 
         private void OnTriggerEnter(Collider collision)
@@ -84,7 +87,6 @@ namespace YNQ.JumpyJoe
         private void Die()
         {
             _dead = true;
-            PlayerInput.DisableInput();
             CameraManager.SwitchCamera(CameraType.GameOver);
         }
     }

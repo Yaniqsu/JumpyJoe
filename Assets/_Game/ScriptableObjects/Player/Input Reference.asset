@@ -15,3 +15,5 @@ MonoBehaviour:
   action: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   alterHeightAction: {fileID: -2793959750818070746, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  minDbTreshold: -90
+  maxDbTreshold: -20
