@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace YNQ.JumpyJoe
 {
@@ -13,6 +14,9 @@ namespace YNQ.JumpyJoe
         private static float _best = 0;
         public float CurrentDistance => _jumps * _distancePerJump;
         public float HeightSum => _rawHeight * _heightMultiplier;
+        
+        public event Action<float> OnDistanceChanged;
+        public event Action<float> OnHeightChanged;
 
         public StatsManager(GameValues gameValues)
         {
@@ -28,6 +32,9 @@ namespace YNQ.JumpyJoe
         {
             _jumps += 1;
             _rawHeight += height;
+            
+            OnDistanceChanged?.Invoke(CurrentDistance);
+            OnHeightChanged?.Invoke(HeightSum);
         }
 
         public float GetBestDistanceSession(float currentDistance)
