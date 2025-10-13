@@ -39,7 +39,12 @@ namespace YNQ.JumpyJoe
                 Movement.SetHeight(ratio);
                 Jump();
             };
-            Movement.OnJumpStart += () => OnJump?.Invoke(Movement.CurrentHeight);
+            Movement.OnJumpStart += () =>
+            {
+                OnJump?.Invoke(Movement.CurrentHeight);
+                PlayerInput.EnableMicInput = false;
+            };
+            Movement.OnJumpEnd += () => PlayerInput.EnableMicInput = true;
         }
 
         private void Jump()
@@ -53,6 +58,21 @@ namespace YNQ.JumpyJoe
                 return;
             
             PlayerInput.Update();
+            
+            if(Input.GetKeyDown(KeyCode.Alpha1)) Jump(.1f);
+            if(Input.GetKeyDown(KeyCode.Alpha2)) Jump(.2f);
+            if(Input.GetKeyDown(KeyCode.Alpha3)) Jump(.3f);
+            if(Input.GetKeyDown(KeyCode.Alpha4)) Jump(.4f);
+            if(Input.GetKeyDown(KeyCode.Alpha5)) Jump(.5f);
+            if(Input.GetKeyDown(KeyCode.Alpha6)) Jump(.6f);
+            if(Input.GetKeyDown(KeyCode.Alpha7)) Jump(.7f);
+            if(Input.GetKeyDown(KeyCode.Alpha8)) Jump(.8f);
+        }
+
+        private void Jump(float height)
+        {
+            Movement.SetHeight(height);
+            Movement.Jump(_tileManager.CurrentPos, _tileManager.NextPos);
         }
 
         private void OnTriggerEnter(Collider collision)

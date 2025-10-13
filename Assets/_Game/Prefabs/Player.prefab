@@ -476,51 +476,6 @@ MonoBehaviour:
     value: {fileID: 4861242394160375920}
   - key: 2
     value: {fileID: 8116485067107119380}
---- !u!1 &6026364433537227887
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3992383680889638599}
-  - component: {fileID: 9085913119507539422}
-  m_Layer: 0
-  m_Name: MicrophoneInputController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3992383680889638599
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6026364433537227887}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3319509581303403946}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9085913119507539422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6026364433537227887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc39b024de4a80d409965c45bf62a6f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: YNQ::YNQ.JumpyJoe.MicrophoneInputController
-  _samplesCount: 4410
 --- !u!1001 &6033584272561673922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -618,6 +573,79 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8035681660144644490, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
   m_PrefabInstance: {fileID: 6033584272561673922}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7216010555230714814
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3319509581303403946}
+    m_Modifications:
+    - target: {fileID: 4000773013555783633, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_Name
+      value: MicrophoneInputController
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+--- !u!4 &3992383680889638599 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5999815669149906297, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+  m_PrefabInstance: {fileID: 7216010555230714814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9085913119507539422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1888079760424181344, guid: 9e37d4651c605ab48b4a12782f8f71f3, type: 3}
+  m_PrefabInstance: {fileID: 7216010555230714814}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc39b024de4a80d409965c45bf62a6f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: YNQ::YNQ.JumpyJoe.MicrophoneInputController
 --- !u!1001 &8662762605886246138
 PrefabInstance:
   m_ObjectHideFlags: 0

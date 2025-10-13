@@ -9,6 +9,7 @@ namespace YNQ.JumpyJoe
         [SerializeField] private Canvas _canvas;
         [SerializeField] private TextMeshProUGUI _bestSessionText;
         [SerializeField] private TextMeshProUGUI _bestGlobalText;
+        [SerializeField] private Animator _animator;
 
         private GameManager _gameManager;
         
@@ -25,7 +26,9 @@ namespace YNQ.JumpyJoe
         public void Play()
         {
             _gameManager.StartGame();
-            _canvas.gameObject.SetActive(false);
+            _animator.SetTrigger("Hide");
         }
+        
+        public void DisableCanvaas() => _canvas.gameObject.SetActive(false);
     }
 }

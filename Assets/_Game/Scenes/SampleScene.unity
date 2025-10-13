@@ -297,7 +297,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -657,7 +657,6 @@ MonoBehaviour:
   _playerControllerPrefab: {fileID: 4519022657122444007, guid: 74913aa241cfdee428cc8c4b1e102779, type: 3}
   _mainMenuManagerPrefab: {fileID: 7836214105526360135, guid: 586dc842aca4fa74985033961ec70110, type: 3}
   _gameOverScreenPrefab: {fileID: 3324588404792441358, guid: dec22e86423935e4dbbb7b46a239f8f5, type: 3}
-  _timeManagerPrefab: {fileID: 6283394028909050855, guid: f5eb0bc1a5025614ca3e4fb8cd68da34, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

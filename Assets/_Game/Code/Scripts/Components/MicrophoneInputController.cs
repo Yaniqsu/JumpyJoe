@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,7 @@ namespace YNQ.JumpyJoe
     public class MicrophoneInputController : MonoBehaviour
     {
         [SerializeField] private int _samplesCount;
+        [SerializeField] private float _volumeSmoothTime = 0.1f;
 
         private string _micName;
         private float[] _samples;
@@ -38,18 +40,25 @@ namespace YNQ.JumpyJoe
         private void Update()
         {
             if (!Enabled)
-                return;
-            
-            var startPos = Mathf.Max(0, Microphone.GetPosition(_micName) - _samplesCount);
-            _microphoneOutput.GetData(_samples, startPos);
-
-            var sum = 0f;
-            foreach (var sample in _samples)
             {
-                sum += Mathf.Pow(sample, 2);
-            }            
-            RmsValue = Mathf.Sqrt(sum / _samples.Length);
-            DbValue = 20f * Mathf.Log10(Mathf.Max(RmsValue, 1e-6f));
+                RmsValue = DbValue = float.MinValue;
+                return;
+            }
+
+            var volume = GetMicVolume();
+            RmsValue = Mathf.Sqrt(volume / _samplesCount);
+            DbValue = 20f * Mathf.Log10(RmsValue / 0.1f);
+        }
+        
+        private float GetMicVolume()
+        {
+            var data = new float[_samplesCount];
+            var micPosition = Microphone.GetPosition(_micName) - _samplesCount + 1;
+            if (micPosition < 0) return 0;
+
+            _microphoneOutput.GetData(data, micPosition);
+
+            return data.Select(Mathf.Abs).Average();
         }
     }
 }

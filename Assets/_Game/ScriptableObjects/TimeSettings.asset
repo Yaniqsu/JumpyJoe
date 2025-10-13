@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870bc017f6d548b18cee91206b4dfb7e, type: 3}
   m_Name: TimeSettings
   m_EditorClassIdentifier: YNQ::YNQ.JumpyJoe.TimeSettings
-  maxTime: 10
+  maxTime: 1e+11
   timeDecreaseOverTime: 1
   jumpTimeIncrease: 1

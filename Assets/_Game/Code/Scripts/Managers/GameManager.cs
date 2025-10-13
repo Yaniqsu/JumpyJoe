@@ -9,13 +9,11 @@ namespace YNQ.JumpyJoe
         [SerializeField] private PlayerController _playerControllerPrefab;
         [SerializeField] private MainMenuManager _mainMenuManagerPrefab;
         [SerializeField] private GameOverScreen _gameOverScreenPrefab;
-        [SerializeField] private TimeManager _timeManagerPrefab;
 
         private PlayerController _playerController;
         private StatsManager _statsManager;
         private MainMenuManager _mainMenuManager;
         private GameOverScreen _gameOverScreen;
-        private TimeManager _timeManager;
 
         private void Start()
         {
@@ -31,7 +29,6 @@ namespace YNQ.JumpyJoe
         {
             _mainMenuManager = Instantiate(_mainMenuManagerPrefab);
             _gameOverScreen = Instantiate(_gameOverScreenPrefab);
-            _timeManager = Instantiate(_timeManagerPrefab);
             
             _mainMenuManager.Show(this, _statsManager);
         }
@@ -54,9 +51,6 @@ namespace YNQ.JumpyJoe
             _playerController.CameraManager.SwitchCamera(CameraType.Game);
             _playerController.Movement.OnJumpEnd += _tileManager.AddTile;
             _playerController.MicrophoneInputController.StartRecording();
-            
-            _timeManager.Initialize(_playerController);
-            _timeManager.OnTimeEnd += _playerController.Kill;
         }
     }
 }

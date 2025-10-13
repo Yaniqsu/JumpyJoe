@@ -12,5 +12,6 @@ namespace YNQ.JumpyJoe
 
         public float minDbTreshold;
         public float maxDbTreshold;
+        public int minTresholdFrames = 15;
     }
 }

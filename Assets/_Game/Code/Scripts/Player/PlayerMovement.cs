@@ -36,7 +36,7 @@ namespace YNQ.JumpyJoe
                return;
             
             CurrentHeight = Mathf.Lerp(_values.minHeight, _values.maxHeight, heightRatio);
-            Debug.Log($"Current height: {CurrentHeight}");
+            //Debug.Log($"Current height: {CurrentHeight}");
         }
 
         private IEnumerator HandleJump(Vector3 startPos, Vector3 endPos)

@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
+using System.Linq;
+using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static YNQ.JumpyJoe.StringUtilities;
 
 namespace YNQ.JumpyJoe
 {
@@ -17,17 +21,26 @@ namespace YNQ.JumpyJoe
         [SerializeField] private TextMeshProUGUI _bestScoreSession;
         [SerializeField] private TextMeshProUGUI _bestScoreGlobal;
         [SerializeField] private TextMeshProUGUI _heightScore;
+        [SerializeField] private Animator _animator;
+
+        [SerializeField, AnimatorParam(nameof(_animator))]
+        private string _showTrigger;
 
         public void ShowGameOverScreen(StatsManager statsManager)
         {
             StartCoroutine(WaitUntilShowingGameOverScreen());
             
-            _distanceScore.text = _menuStrings.distanceText.Construct(statsManager.CurrentDistance);
-            _heightScore.text = _menuStrings.heightText.Construct(statsManager.HeightSum);
-            _bestScoreSession.text = _menuStrings.bestSession.Construct(statsManager.GetBestDistanceSession(statsManager.CurrentDistance));
-            _bestScoreGlobal.text = _menuStrings.bestGlobal.Construct(statsManager.GetBestDistanceGlobal(statsManager.CurrentDistance));
+            _distanceScore.text = _menuStrings.distanceText.Construct(statsManager.CurrentDistance
+                .FormatToMeter());
+            _heightScore.text = _menuStrings.heightText.Construct(statsManager.HeightSum
+                .FormatToMeter());
+            _bestScoreSession.text = _menuStrings.bestSession.Construct(statsManager.GetBestDistanceSession(statsManager.CurrentDistance)
+                .FormatToMeter());
+            _bestScoreGlobal.text = _menuStrings.bestGlobal.Construct(statsManager.GetBestDistanceGlobal(statsManager.CurrentDistance)
+                .FormatToMeter());
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(_verticalLayoutGroup.transform as RectTransform);
+            _animator.SetTrigger(_showTrigger);
         }
 
         public void Retry()
