@@ -49,11 +49,8 @@ namespace YNQ.JumpyJoe
             var tile = _tileSpawner.SpawnTile();
             _tiles.Add(tile);
 
-            //if(_tiles.Count > START_SIZE + 2)
-            {
-                Destroy(_tiles[0].gameObject);
-                _tiles.RemoveAt(0);
-            }
+            Destroy(_tiles[0].gameObject);
+            _tiles.RemoveAt(0);
         }
     }
 }

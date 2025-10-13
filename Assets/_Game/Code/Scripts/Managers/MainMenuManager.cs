@@ -50,6 +50,11 @@ namespace YNQ.JumpyJoe
         }
         
         /// <summary>
+        /// Zamknięcie aplikacji
+        /// </summary>
+        public void Quit() => Application.Quit();
+        
+        /// <summary>
         /// Ukrycie Canvasu
         /// </summary>
         public void DisableCanvaas() => _canvas.gameObject.SetActive(false);
