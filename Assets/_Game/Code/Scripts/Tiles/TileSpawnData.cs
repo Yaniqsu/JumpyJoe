@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace YNQ.JumpyJoe
 {
+    /// <summary>
+    /// Przechowuje wszystkie dane potrzebne do generowania mapy
+    /// </summary>
     [CreateAssetMenu(fileName = "Tile Spawn Data", menuName = "Scriptable Objects/Tile Spawn Data", order = 0)]
     public class TileSpawnData : ScriptableObject
     {

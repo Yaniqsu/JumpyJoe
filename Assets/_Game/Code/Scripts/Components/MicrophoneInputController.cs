@@ -5,7 +5,9 @@ using UnityEngine.Events;
 
 namespace YNQ.JumpyJoe
 {
-    
+    /// <summary>
+    /// Klasa odpowiadająca za zbieranie sygnału z mikrofonu
+    /// </summary>
     public class MicrophoneInputController : MonoBehaviour
     {
         [SerializeField] private int _samplesCount;
@@ -22,6 +24,9 @@ namespace YNQ.JumpyJoe
         
         
 
+        /// <summary>
+        /// Rozpoczyna nagrywanie sygnału
+        /// </summary>
         public void StartRecording()
         {
             if (Microphone.devices.Length == 0)
@@ -50,6 +55,10 @@ namespace YNQ.JumpyJoe
             DbValue = 20f * Mathf.Log10(RmsValue / 0.1f);
         }
         
+        /// <summary>
+        /// Zbiera średni wynik z próbki
+        /// </summary>
+        /// <returns>Średni wynik z próbki</returns>
         private float GetMicVolume()
         {
             var data = new float[_samplesCount];

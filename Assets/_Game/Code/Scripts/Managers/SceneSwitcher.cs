@@ -4,8 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Klasa odpowiadająca za zmianę scen
+/// </summary>
 public class SceneSwitcher : MonoBehaviour
 {
+    /// <summary>
+    /// Request zmiany sceny, przechowuje ID lub nazwę aktualnie ładowanej sceny
+    /// </summary>
     private struct SceneLoadRequest
     {
         public int sceneIndex;
@@ -56,6 +62,10 @@ public class SceneSwitcher : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Rozpoczęcie zmiany sceny
+    /// </summary>
+    /// <param name="request"></param>
     private static void SwitchScene(SceneLoadRequest request)
     {
         if (Instance == null || Instance._switching)
@@ -68,12 +78,24 @@ public class SceneSwitcher : MonoBehaviour
             .onComplete = () => Instance.StartCoroutine(HandleSceneTransition(request));
     }
     
+    /// <summary>
+    /// Zmiana sceny po jej nazwie
+    /// </summary>
+    /// <param name="sceneName">Nazwa sceny</param>
     public static void SwitchScene(string sceneName) => 
         SwitchScene(new SceneLoadRequest(sceneName));
     
+    /// <summary>
+    /// Zmiana sceny po jej indeksie
+    /// </summary>
+    /// <param name="sceneID">Indeks sceny w Build List</param>
     public static void SwitchScene(int sceneID) => 
         SwitchScene(new SceneLoadRequest(sceneID));
 
+    /// <summary>
+    /// Zarządzenie ładowaniem sceny i animacjami z tym związanymi
+    /// </summary>
+    /// <param name="request">Dane sceny do załadowania</param>
     private static IEnumerator HandleSceneTransition(SceneLoadRequest request)
     {
         Instance._animation.SetActive(true);

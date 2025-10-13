@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace YNQ.JumpyJoe
 {
+    /// <summary>
+    /// Pozwala zdefiniować szablon dla tekstu wyświetlającego wartość dowolnego typu
+    /// </summary>
     [CreateAssetMenu(fileName = "ValuePattern", menuName = "Scriptable Objects/Value Pattern")]
     public class ValuePattern : ScriptableObject
     {

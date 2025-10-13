@@ -2,6 +2,9 @@
 
 namespace YNQ.JumpyJoe
 {
+    /// <summary>
+    /// Przechowuje zmienne globalne – takie jak mnożniki skoku i dystansu, klucz do zapisywania globalnego rekordu
+    /// </summary>
     [CreateAssetMenu(fileName = "GameValues", menuName = "Scriptable Objects/Game Values")]
     public class GameValues : ScriptableObject
     {

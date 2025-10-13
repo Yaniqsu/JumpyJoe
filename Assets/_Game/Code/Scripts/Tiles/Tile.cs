@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace YNQ.JumpyJoe
 {
+	/// <summary>
+	/// Przechowuje referencje do punktów na kafelku
+	/// </summary>
 	public class Tile : MonoBehaviour
 	{
 		[BoxGroup(Strings.BoxComponents), SerializeField] private Transform _jumpPos;

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: YNQ::YNQ.JumpyJoe.GameValues
   _distancePerJump: 3.4
   _heightMultiplier: 1.4
+  _bestKeyName: Best

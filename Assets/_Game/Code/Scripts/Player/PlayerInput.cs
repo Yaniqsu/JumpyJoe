@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 namespace YNQ.JumpyJoe
 {
+    /// <summary>
+    /// Odpowiada za obsługę wejścia gracza, w tym przetwarzanie danych z mikrofonu i generowanie skoków.
+    /// </summary>
     public class PlayerInput
     {
         public Action OnJump;
@@ -17,6 +20,11 @@ namespace YNQ.JumpyJoe
 
         public bool EnableMicInput { get; set; } = true;
         
+        /// <summary>
+        /// Tworzy nowy obiekt wejścia gracza i ustawia zależności od mikrofonu oraz konfiguracji wejścia.
+        /// </summary>
+        /// <param name="microphoneInputController">Kontroler mikrofonu odczytujący poziom głośności.</param>
+        /// <param name="inputReference">Obiekt z konfiguracją progów dźwięku i ustawieniami wejścia.</param>
         public PlayerInput(MicrophoneInputController microphoneInputController, InputReference inputReference)
         {
             _reference = inputReference;
@@ -26,12 +34,18 @@ namespace YNQ.JumpyJoe
             _loudnesCount = 0;
         }
 
+        /// <summary>
+        /// Aktualizuje stan wejścia — jeśli mikrofon jest aktywny, sprawdza jego wartość.
+        /// </summary>
         public void Update()
         {
-            if(EnableMicInput)
+            if (EnableMicInput)
                 CheckMicrophoneInput();
         }
 
+        /// <summary>
+        /// Analizuje sygnał z mikrofonu i wykrywa moment, w którym gracz generuje skok.
+        /// </summary>
         private void CheckMicrophoneInput()
         {
             if (_micController.DbValue >= _reference.minDbTreshold &&
@@ -41,11 +55,10 @@ namespace YNQ.JumpyJoe
                 _loudnesCount++;
                 _inTreshold = true;
             }
-            else if(_inTreshold && _loudnesCount > _reference.minTresholdFrames)
+            else if (_inTreshold && _loudnesCount > _reference.minTresholdFrames)
             {
                 var ratio = Mathf.InverseLerp(_reference.minDbTreshold, _reference.maxDbTreshold,
                     _loudnessSum / _loudnesCount);
-                Debug.Log($"Db: {_loudnessSum / _loudnesCount}");
                 OnSetJumpHeight?.Invoke(ratio);
                 
                 _loudnessSum = 0;

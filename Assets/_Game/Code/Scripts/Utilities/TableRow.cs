@@ -2,6 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Serialization;
 
+/// <summary>
+/// Pojedynczy wiersz w słowniku, głównie używany do wyświetlania danych ze słownika w inspektorze Unity
+/// </summary>
+/// <typeparam name="T1">Typ kluczu</typeparam>
+/// <typeparam name="T2">Typ wartości</typeparam>
 [System.Serializable]
 public struct TableRow<T1,T2>
 {

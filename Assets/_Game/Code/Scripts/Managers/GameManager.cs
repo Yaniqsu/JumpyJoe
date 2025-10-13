@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace YNQ.JumpyJoe
 {
+    /// <summary>
+    /// Główna klasa zarządzająca logiką gry
+    /// </summary>
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private GameValues _gameValues;
@@ -27,6 +30,9 @@ namespace YNQ.JumpyJoe
             
         }
 
+        /// <summary>
+        /// Tworzenie menusów i ich inicjalizacja
+        /// </summary>
         private void InstantiateMenus()
         {
             _mainMenuManager = Instantiate(_mainMenuManagerPrefab);
@@ -37,6 +43,9 @@ namespace YNQ.JumpyJoe
             _statsDisplayManager.Initialize(_statsManager);
         }
 
+        /// <summary>
+        /// Tworzenie i inicjalizacja gracza
+        /// </summary>
         private void SpawnPlayer()
         {
             _playerController = Instantiate(_playerControllerPrefab, _tileManager.CurrentPos, Quaternion.identity);
@@ -51,6 +60,9 @@ namespace YNQ.JumpyJoe
             _playerController.OnJump += _statsManager.OnPlayerJump;
         }
 
+        /// <summary>
+        /// Rozpoczęcie nowej gry
+        /// </summary>
         public void StartGame()
         {
             _playerController.CameraManager.SwitchCamera(CameraType.Game);

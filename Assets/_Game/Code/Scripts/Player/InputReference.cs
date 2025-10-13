@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 namespace YNQ.JumpyJoe
 {
+    /// <summary>
+    /// Klasa służąca do ustawienia danych potrzebnych do zebrania inputu
+    /// </summary>
     [CreateAssetMenu(fileName = "Input Reference", menuName = "Scriptable Objects/Input Reference")]
     public class InputReference : ScriptableObject
     {

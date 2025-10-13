@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace YNQ.JumpyJoe
 {
+    /// <summary>
+    /// Główny kontroler gracza — obsługuje ruch, wejście, skoki, kolizje i śmierć.
+    /// </summary>
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private InputReference _inputReference;
@@ -23,6 +26,10 @@ namespace YNQ.JumpyJoe
         public event Action<GameObject> OnDeath = null;
         public event Action<float> OnJump = null;
 
+        /// <summary>
+        /// Inicjalizuje komponent gracza, przypina zdarzenia i konfiguruje zależności.
+        /// </summary>
+        /// <param name="tileManager">Referencja do menedżera kafelków.</param>
         public void Initialize(TileManager tileManager)
         {
             _tileManager = tileManager;
@@ -47,11 +54,17 @@ namespace YNQ.JumpyJoe
             Movement.OnJumpEnd += () => PlayerInput.EnableMicInput = true;
         }
 
+        /// <summary>
+        /// Wykonuje skok gracza, używając aktualnych pozycji kafelków.
+        /// </summary>
         private void Jump()
         {
             Movement.Jump(_tileManager.CurrentPos, _tileManager.NextPos);
         }
 
+        /// <summary>
+        /// Aktualizuje logikę gracza w każdej klatce (wejście, testowe skoki).
+        /// </summary>
         private void Update()
         {
             if (_dead)
@@ -59,22 +72,30 @@ namespace YNQ.JumpyJoe
             
             PlayerInput.Update();
             
-            if(Input.GetKeyDown(KeyCode.Alpha1)) Jump(.1f);
-            if(Input.GetKeyDown(KeyCode.Alpha2)) Jump(.2f);
-            if(Input.GetKeyDown(KeyCode.Alpha3)) Jump(.3f);
-            if(Input.GetKeyDown(KeyCode.Alpha4)) Jump(.4f);
-            if(Input.GetKeyDown(KeyCode.Alpha5)) Jump(.5f);
-            if(Input.GetKeyDown(KeyCode.Alpha6)) Jump(.6f);
-            if(Input.GetKeyDown(KeyCode.Alpha7)) Jump(.7f);
-            if(Input.GetKeyDown(KeyCode.Alpha8)) Jump(.8f);
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1)) Jump(.1f);
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2)) Jump(.2f);
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3)) Jump(.3f);
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha4)) Jump(.4f);
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha5)) Jump(.5f);
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha6)) Jump(.6f);
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha7)) Jump(.7f);
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha8)) Jump(.8f);
         }
 
+        /// <summary>
+        /// Wykonuje skok z określoną wysokością (używane w testach i debugowaniu).
+        /// </summary>
+        /// <param name="height">Wysokość skoku (0–1).</param>
         private void Jump(float height)
         {
             Movement.SetHeight(height);
             Movement.Jump(_tileManager.CurrentPos, _tileManager.NextPos);
         }
 
+        /// <summary>
+        /// Reaguje na kolizje — sprawdza, czy gracz uderzył w przeszkodę i jeśli tak, zabija gracza.
+        /// </summary>
+        /// <param name="collision">Kolizja wykryta przez trigger.</param>
         private void OnTriggerEnter(Collider collision)
         {
             var rb = collision.attachedRigidbody;
@@ -85,6 +106,10 @@ namespace YNQ.JumpyJoe
                 Kill(rb.gameObject);
         }
 
+        /// <summary>
+        /// Zabija gracza po zderzeniu z przeszkodą i uruchamia efekt cząsteczkowy.
+        /// </summary>
+        /// <param name="obstacle">Obiekt przeszkody, który spowodował śmierć.</param>
         private void Kill(GameObject obstacle)
         {
             if (_dead)
@@ -95,6 +120,9 @@ namespace YNQ.JumpyJoe
             OnDeath?.Invoke(obstacle);
         }
 
+        /// <summary>
+        /// Zabija gracza bez powiązania z konkretną przeszkodą.
+        /// </summary>
         public void Kill()
         {
             if (_dead)
@@ -104,6 +132,9 @@ namespace YNQ.JumpyJoe
             OnDeath?.Invoke(null);
         }
 
+        /// <summary>
+        /// Oznacza gracza jako martwego i przełącza kamerę na ekran końcowy.
+        /// </summary>
         private void Die()
         {
             _dead = true;

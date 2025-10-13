@@ -11,6 +11,9 @@ using static YNQ.JumpyJoe.StringUtilities;
 
 namespace YNQ.JumpyJoe
 {
+    /// <summary>
+    /// Klasa odpowiadająca za zarządzanie logiką ekranu końca gry
+    /// </summary>
     public class GameOverScreen : MonoBehaviour
     {
         [SerializeField] private MenuStrings _menuStrings;
@@ -26,6 +29,10 @@ namespace YNQ.JumpyJoe
         [SerializeField, AnimatorParam(nameof(_animator))]
         private string _showTrigger;
 
+        /// <summary>
+        /// Pokazuje ekran końca gry
+        /// </summary>
+        /// <param name="statsManager">Referencja do obiektu typu StatsManager</param>
         public void ShowGameOverScreen(StatsManager statsManager)
         {
             StartCoroutine(WaitUntilShowingGameOverScreen());
@@ -43,11 +50,17 @@ namespace YNQ.JumpyJoe
             _animator.SetTrigger(_showTrigger);
         }
 
+        /// <summary>
+        /// Ponowne wczytanie sceny
+        /// </summary>
         public void Retry()
         {
             SceneSwitcher.SwitchScene(SceneManager.GetActiveScene().buildIndex);
         }
 
+        /// <summary>
+        /// Czeka sekundę, zanim może pokazać Canvas
+        /// </summary>
         private IEnumerator WaitUntilShowingGameOverScreen()
         {
             var elapsedTime = 0f;

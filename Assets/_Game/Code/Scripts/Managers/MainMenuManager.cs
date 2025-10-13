@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace YNQ.JumpyJoe
 {
+    /// <summary>
+    /// Klasa zarządzająca logiką ekranu menu głównego
+    /// </summary>
     public class MainMenuManager : MonoBehaviour
     {
         [SerializeField] private MenuStrings _menuStrings;
@@ -16,6 +19,9 @@ namespace YNQ.JumpyJoe
 
         private GameManager _gameManager;
         
+        /// <summary>
+        /// Pokazanie Canvasu i inicjalizacja komponentów
+        /// </summary>
         public void Show(GameManager gameManager, StatsManager statsManager)
         {
             _gameManager = gameManager;
@@ -34,12 +40,18 @@ namespace YNQ.JumpyJoe
             _canvas.gameObject.SetActive(true);
         }
 
+        /// <summary>
+        /// Rozpoczęcie nowej gry
+        /// </summary>
         public void Play()
         {
             _gameManager.StartGame();
             _animator.SetTrigger("Hide");
         }
         
+        /// <summary>
+        /// Ukrycie Canvasu
+        /// </summary>
         public void DisableCanvaas() => _canvas.gameObject.SetActive(false);
     }
 }

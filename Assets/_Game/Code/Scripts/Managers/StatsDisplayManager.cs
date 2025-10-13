@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace YNQ.JumpyJoe
 {
+    /// <summary>
+    /// Klasa zarządzająca wyświetlaniem statystyk gry
+    /// </summary>
     public class StatsDisplayManager : MonoBehaviour
     {
         [SerializeField] private Canvas _canvas;
@@ -15,6 +18,10 @@ namespace YNQ.JumpyJoe
         private float _lastScore;
         private float _lastHeight;
 
+        /// <summary>
+        /// Inicjalizaja wartości i komponentów
+        /// </summary>
+        /// <param name="statsManager">Referencja do obiektu typu StatsManager</param>
         public void Initialize(StatsManager statsManager)
         {
             SetScore(0);
@@ -26,9 +33,20 @@ namespace YNQ.JumpyJoe
             _canvas.gameObject.SetActive(false);
         }
         
+        /// <summary>
+        /// Pokazanie Canvasu
+        /// </summary>
         public void Show() => _canvas.gameObject.SetActive(true);
+        
+        /// <summary>
+        /// Wywołanie animacji ukrycia Canvasu
+        /// </summary>
         public void Hide() => _animator.SetTrigger("Hide");
 
+        /// <summary>
+        /// Animacja zmiany wartości obecnego wyniku
+        /// </summary>
+        /// <param name="targetScore">Nowy wynik</param>
         private IEnumerator ChangeScore(float targetScore)
         {
             var last = _lastScore;
@@ -44,6 +62,10 @@ namespace YNQ.JumpyJoe
             SetScore(targetScore);
         }
         
+        /// <summary>
+        /// Animacja zmiany wartości sumy skoków
+        /// </summary>
+        /// <param name="targetScore">Nowa suma skoków</param>
         private IEnumerator ChangeHeight(float targetScore)
         {
             var last = _lastHeight;
@@ -59,12 +81,20 @@ namespace YNQ.JumpyJoe
             SetHeight(targetScore);
         }
 
+        /// <summary>
+        /// Ustawianie dystansu do wyświetlenia
+        /// </summary>
+        /// <param name="value">Dystans</param>
         private void SetScore(float value)
         {
             _lastScore = value;
             _scoreText.text = $"Score: {_lastScore.ToString("F2").Replace(",", ".")}m";
         }
         
+        /// <summary>
+        /// Ustawienie sumy skoków do wyświetlenia 
+        /// </summary>
+        /// <param name="value"Suma skoków></param>
         private void SetHeight(float value)
         {
             _lastHeight = value;
