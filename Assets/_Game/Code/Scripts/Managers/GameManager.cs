@@ -3,7 +3,8 @@ using UnityEngine;
 namespace YNQ.JumpyJoe
 {
     /// <summary>
-    /// Główna klasa zarządzająca logiką gry
+    /// Główna klasa zarządzająca logiką gry.
+    /// Odpowiada za inicjalizację menedżerów, gracza i kontrolę przebiegu rozgrywki.
     /// </summary>
     public class GameManager : MonoBehaviour
     {
@@ -20,6 +21,9 @@ namespace YNQ.JumpyJoe
         private GameOverScreen _gameOverScreen;
         private StatsDisplayManager _statsDisplayManager;
 
+        /// <summary>
+        /// Uruchamia grę, inicjalizując wszystkie główne elementy i systemy.
+        /// </summary>
         private void Start()
         {
             _statsManager = new StatsManager(_gameValues);
@@ -27,11 +31,10 @@ namespace YNQ.JumpyJoe
             _tileManager.GenerateStartTiles();
             InstantiateMenus();
             SpawnPlayer();
-            
         }
 
         /// <summary>
-        /// Tworzenie menusów i ich inicjalizacja
+        /// Tworzy i inicjalizuje elementy interfejsu użytkownika (menu główne, ekran końcowy, statystyki).
         /// </summary>
         private void InstantiateMenus()
         {
@@ -44,7 +47,7 @@ namespace YNQ.JumpyJoe
         }
 
         /// <summary>
-        /// Tworzenie i inicjalizacja gracza
+        /// Tworzy instancję gracza i podłącza odpowiednie zdarzenia (skok, śmierć).
         /// </summary>
         private void SpawnPlayer()
         {
@@ -61,7 +64,7 @@ namespace YNQ.JumpyJoe
         }
 
         /// <summary>
-        /// Rozpoczęcie nowej gry
+        /// Rozpoczyna nową rozgrywkę i aktywuje odpowiednie systemy.
         /// </summary>
         public void StartGame()
         {

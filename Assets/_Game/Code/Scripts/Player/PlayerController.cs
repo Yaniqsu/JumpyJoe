@@ -13,6 +13,9 @@ namespace YNQ.JumpyJoe
         [SerializeField] private PlayerMovementValues _playerMovementValues;
         [SerializeField] private ParticleSystem _destroyParticle;
         [SerializeField] private MicrophoneInputController _microphoneInputController;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _jumpSound;
+        [SerializeField] private AudioClip _deathSound;
         [SerializeField, Tag] private string _obstacleTag;
 
         private bool _dead;
@@ -50,6 +53,7 @@ namespace YNQ.JumpyJoe
             {
                 OnJump?.Invoke(Movement.CurrentHeight);
                 PlayerInput.EnableMicInput = false;
+                _audioSource.PlayOneShot(_jumpSound);
             };
             Movement.OnJumpEnd += () => PlayerInput.EnableMicInput = true;
         }
@@ -117,6 +121,7 @@ namespace YNQ.JumpyJoe
             
             _destroyParticle.Play();
             Die();
+            _audioSource.PlayOneShot(_deathSound);
             OnDeath?.Invoke(obstacle);
         }
 

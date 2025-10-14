@@ -16,6 +16,7 @@ namespace YNQ.JumpyJoe
         [SerializeField] private TMP_InputField _minDb;
         [SerializeField] private TMP_InputField _maxDb;
         [SerializeField] private Animator _animator;
+        [SerializeField] private AudioSource _audioSource;
 
         private GameManager _gameManager;
         
@@ -47,6 +48,7 @@ namespace YNQ.JumpyJoe
         {
             _gameManager.StartGame();
             _animator.SetTrigger("Hide");
+            _audioSource.Stop();
         }
         
         /// <summary>
